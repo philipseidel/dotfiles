@@ -20,6 +20,10 @@ function installZSH() {
     # link to the repo zsh config
     ln -sf $REPO_HOME/.zshrc $HOME/.zshrc 
 
+    # source the function script and synch the repo
+    source $REPO_HOME/.oh-my-zsh/custom/functions.zsh
+    syncRepo
+
     chsh -s `which zsh`
     
     /usr/bin/env zsh

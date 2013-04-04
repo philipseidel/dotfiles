@@ -11,9 +11,9 @@ function syncRepo() {
             dir=`dirname $new`
             if [ ! -d $dir ]
             then
-                echo mkdir -p $dir
+                mkdir -p $dir
             fi
-            echo ln -sf $current $new
+            ln -sf $current $new
         fi
     done
     popd
