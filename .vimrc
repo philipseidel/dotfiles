@@ -1,0 +1,11 @@
+syntax on
+color solarized
+set number
+set ignorecase
+set smartcase
+set ruler
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
