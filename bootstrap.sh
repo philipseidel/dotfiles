@@ -17,9 +17,8 @@ function installZSH() {
         cp ~/.zshrc ~/.zshrc.orig
     fi
 
-    cp $ZSH_HOME/templates/zshrc.zsh-template ~/.zshrc
-
-    cat $REPO_HOME/.oh-my-zsh/custom/functions.zsh
+    # link to the repo zsh config
+    ln -sf $REPO_HOME/.zshrc $HOME/.zshrc 
 
     chsh -s `which zsh`
     
@@ -27,11 +26,6 @@ function installZSH() {
     
     source ~/.zshrc
 
-    source $REPO_HOME/.oh-my-zsh/custom/functions.zsh
-    
-    cat $REPO_HOME/.oh-my-zsh/custom/functions.zsh
-
-    syncRepo2
-}
+} 
 
 installZSH

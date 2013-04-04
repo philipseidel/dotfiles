@@ -1,6 +1,6 @@
 REPO_HOME=$HOME/dotfiles
 
-function updateFiles() {
+function syncRepo() {
     pushd $REPO_HOME
     for file in `find . | grep -vE '(\.git|\.DS_Store|\.swp|README\.md|bootstrap\.sh)'`
     do
@@ -18,5 +18,3 @@ function updateFiles() {
     done
     popd
 }
-
-updateFiles
