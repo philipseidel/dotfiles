@@ -1,36 +1,37 @@
 # download the install the oh-my-zsh bits
-ZSH_HOME=$HOME/tmp
+ZSH_HOME=$HOME/.oh-my-zsh
 REPO_HOME=$HOME/dotfiles
 
-function updateZSH() {
-    #echo $HOME
-    pushd $ZSH_HOME
-    curl "https://nodeload.github.com/robbyrussell/oh-my-zsh/tar.gz/master" | tar xvz
-    mv ./oh-my-zsh-master ./.oh-my-zsh
-    popd
-}
+# install configuration files from a download rather than git
+function installZSH() {
+    if [ -d $ZSH_HOME ]
+    then
+        echo "OH MY ZSH is already installed.  Please remove $ZSH_HOME to proceed."
+        exit
+    fi
 
-#updateZSH
-
-# just a quick function to sync up the repo
-function updateFiles() {
-    pushd $REPO_HOME
-    for file in `find . | grep -vP '(\.git|\.DS_Store|\.swp)'`
-    do
-        if [ "$file" != "." ]
-        then
-            new=`echo $file | sed "s;./;$HOME/;"`
-            dir=`dirname $new`
-            if [ ! -d $dir ]
-            then
-                echo mkdir -p $dir
-            fi
-
-            echo cp -f $file $new
-        fi
-    done
+    git clone git://github.com/robbyrussell/oh-my-zsh.git $ZSH_HOME
     
-    popd
+    if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]
+    then
+        cp ~/.zshrc ~/.zshrc.orig
+    fi
+
+    cp $ZSH_HOME/templates/zshrc.zsh-template ~/.zshrc
+
+    cat $REPO_HOME/.oh-my-zsh/custom/functions.zsh
+
+    chsh -s `which zsh`
+    
+    /usr/bin/env zsh
+    
+    source ~/.zshrc
+
+    source $REPO_HOME/.oh-my-zsh/custom/functions.zsh
+    
+    cat $REPO_HOME/.oh-my-zsh/custom/functions.zsh
+
+    syncRepo2
 }
 
-updateFiles
+installZSH
