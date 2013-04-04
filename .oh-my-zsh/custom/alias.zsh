@@ -1,0 +1,8 @@
+alias ls='ls -lah'
+alias cls='clear'
+alias md5sum='/usr/bin/openssl md5'
+alias sha1sum='/usr/bin/openssl sha1'
+alias ..='cd ..'
+alias ...='cd ..; cd ..'
+alias tarc='tar -zcf'
+alias ps='ps aux'

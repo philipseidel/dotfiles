@@ -8,14 +8,6 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="clean"
 
 # Aliases
-alias ls='ls -lah'
-alias cls='clear'
-alias md5sum='/usr/bin/openssl md5'
-alias sha1sum='/usr/bin/openssl sha1'
-alias ..='cd ..'
-alias ...='cd ..; cd ..'
-alias tarc='tar -zcf'
-alias ps='ps aux'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -38,13 +30,7 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
+plugins=(git vagrant knife)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/opt/chef/bin:/opt/chef/embedded/bin:/opt/local/bin:/opt/local/sbin:$PATH
-
-# history configuration
-export HISTTIMEFORMAT='%F %T '
-export HISTCONTROL=erasedups
