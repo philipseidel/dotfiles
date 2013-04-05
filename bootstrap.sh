@@ -22,7 +22,7 @@ function installZSH() {
 
     # source the function script and synch the repo
     source $REPO_HOME/.oh-my-zsh/custom/functions.zsh
-    syncRepo
+    syncrepo
 
     chsh -s `which zsh`
     

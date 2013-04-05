@@ -1,6 +1,7 @@
 REPO_HOME=$HOME/dotfiles
 
-function syncRepo() {
+# sync up the dotfiles repo
+function syncrepo() {
     pushd $REPO_HOME
     for file in `find . | grep -vE '(\.git|\.DS_Store|\.swp|README\.md|bootstrap\.sh)'`
     do
@@ -18,3 +19,9 @@ function syncRepo() {
     done
     popd
 }
+
+# send content to pastebin
+function pastebin() {
+    curl -s -X POST -d "api_option=paste&api_dev_key=$PB_API_KEY&api_paste_code=$1" "http://pastebin.com/api/api_post.php"
+}
+
