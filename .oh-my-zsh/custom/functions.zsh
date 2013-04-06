@@ -25,3 +25,14 @@ function pastebin() {
     curl -s -X POST -d "api_option=paste&api_dev_key=$PB_API_KEY&api_paste_code=$1" "http://pastebin.com/api/api_post.php"
 }
 
+# calculate percent of 100
+function pero() {
+    result=`echo "scale=2;($1*100)/$2" | bc`
+    echo "$result%"
+}
+
+# calculate percent of change
+function perc() {
+    result=`echo "scale=2;(($2 - $1) / $1)*100" | bc`
+    echo "$result%"
+}

@@ -34,4 +34,7 @@ plugins=(git vagrant knife)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-source $HOME/.zshrc_local
+if [ -f $HOME/.zshrc_local ]
+then
+    source $HOME/.zshrc_local
+fi
