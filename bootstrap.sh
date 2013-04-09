@@ -10,7 +10,7 @@ function installZSH() {
         exit
     fi
 
-    git clone git://github.com/robbyrussell/oh-my-zsh.git $ZSH_HOME
+    git clone https://github.com/robbyrussell/oh-my-zsh.git $ZSH_HOME
     
     if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]
     then
